@@ -16,9 +16,5 @@ background-size: cover;
 }*/
 
 /*video#myVideo {
-position: fixed; right: 0; bottom: 0;
-min-width: 100%; min-height: 100%;
-width: 400px; height: 300px;
-background: url('../images/background.jpg') no-repeat;
-background-size: cover;
+object-fit: fill;
 }*/
