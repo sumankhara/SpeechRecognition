@@ -8,9 +8,9 @@
   	<script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
   	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.24.0/babel.js"></script>
   	<script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
-		<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
-					integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"> -->
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+					integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+		<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"> -->
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<script src="scripts/artyom.window.js"></script>
 		<script src="scripts/jquery-3.2.1.min.js"></script>
@@ -71,30 +71,46 @@
 					if(!this.state.gameStarted){
 						return(
 							<div>
-									<video className="responsive-video" loop id="myVideo">
+								<div className="embed-responsive embed-responsive-21by9">
+									<video className="embed-responsive-item" loop id="myVideo">
 										<source src="video/Introduction.mp4" type="video/mp4" />
 									</video>
-									<audio loop id="myAudio">
-										<source src="audio/Background_Audio.m4a" />
-									</audio>
-									<button type="button" className="btn waves-effect waves-light" onClick={this.startJarvis.bind(this)}>Start Jarvis</button>
+								</div>
+								<audio loop id="myAudio">
+									<source src="audio/Background_Audio.m4a" />
+								</audio>
+								<button type="button" className="btn btn-primary btn-lg" onClick={this.startJarvis.bind(this)}>Start Game</button>
 							</div>
+
 						);
 					}
 					else{
 						return(
-							<div className="video-container">
-								<video className="responsive-video" loop id="myVideo">
-									<source src="video/Introduction.mp4" type="video/mp4" />
-								</video>
-      				</div>
+							<div>
+								<div className="embed-responsive embed-responsive-21by9">
+									<video className="embed-responsive-item" loop id="myVideo">
+										<source src="video/Introduction.mp4" type="video/mp4" />
+									</video>
+								</div>
+							</div>
+
 						);
 					}
 				}
 			}
 
-			// <div>
-			// 	<video className="responsive-video" loop id="myVideo" width="1500px" height="100%">
+			//first section
+			// <video className="responsive-video" loop id="myVideo">
+			// 	<source src="video/Introduction.mp4" type="video/mp4" />
+			// </video>
+			// <audio loop id="myAudio">
+			// 	<source src="audio/Background_Audio.m4a" />
+			// </audio>
+			// <button type="button" className="btn waves-effect waves-light" onClick={this.startJarvis.bind(this)}>Start Jarvis</button>
+
+			//second section
+			// <div className="video-container">
+			// 	<video className="responsive-video" loop id="myVideo">
 			// 		<source src="video/Introduction.mp4" type="video/mp4" />
 			// 	</video>
 			// </div>
@@ -140,7 +156,7 @@
 					onEnd:function(){
 						var start = new Date().getTime();
 						var end = start;
-						while(end < start + 2000) {
+						while(end < start + 3000) {
 							end = new Date().getTime();
 						}
 						ReactDOM.render(<h1></h1>, document.getElementById("root"));
@@ -219,7 +235,7 @@
 					}
 				});
 
-				artyom.say("Two consecutive cycle is equal to one product.",{
+				artyom.say("Two consecutive cycle in quick succession is equal to one product. You can change the sequence between cycles.",{
 					lang:"en-GB",
 					onStart:function(){
 						ReactDOM.render(
@@ -236,7 +252,7 @@
 					onEnd:function(){
 						var start = new Date().getTime();
 						var end = start;
-						while(end < start + 4000) {
+						while(end < start + 8000) {
 							end = new Date().getTime();
 						}
 						ReactDOM.render(<h1></h1>, document.getElementById("root"));
@@ -313,7 +329,7 @@
 			{
 				indexes: ["start the game","yes"],
 				action: function(i){
-
+					artyom.say("Ok. Let's start playing the game.");
 					artyom.say("This game will need five players.",{
 						onStart:function(){
 							artyom.dontObey();
@@ -338,7 +354,7 @@
 						onEnd:function(){
 							var start = new Date().getTime();
 							var end = start;
-							while(end < start + 2000) {
+							while(end < start + 3000) {
 								end = new Date().getTime();
 							}
 							artyom.obey();
@@ -361,7 +377,7 @@
 			{
 				indexes: ["repeat rules"],
 				action: function(i){
-					artyom.say("Here are the rules again.",{
+					artyom.say("Ok. I will repeat the rules again.",{
 						onStart:function(){
 							ReactDOM.render(<h1></h1>,document.getElementById("root"));
 							// ReactDOM.render(<img src="images/filler.gif" style={{ height: '685px', width: '100%' }}/>,
@@ -386,20 +402,34 @@
 				}
 			},
 			{
-				indexes: ["begin game", "start game"],
+				indexes: ["play game", "start game"],
 				action: function(i){
 					// ReactDOM.render(<img src="images/background.jpg" style={{ height: '685px', width: '100%' }}/>,
 					// 	document.getElementById("root")
 					// );
 					// artyom.dontObey();
-					artyom.say("Once you are done, respond to me by saying Time ",{
+					artyom.say("Ok. Once you are done, respond to me by saying Time ",{
 						onStart:function(){
 							artyom.dontObey();
+
+							ReactDOM.render(<h1></h1>,document.getElementById("root"));
+
+							ReactDOM.render(
+								<video loop id="myVideo2" width="1300px" height="100%">
+									<source src="video/GameOn.mp4" type="video/mp4" />
+								</video>,
+								document.getElementById("root")
+							);
+
+							let vid2 = document.getElementById("myVideo2");
+							vid2.play();
+
+//							artyom.dontObey();
 						},
 						onEnd:function(){
 							var start = new Date().getTime();
 							var end = start;
-							while(end < start + 2000) {
+							while(end < start + 1000) {
 								end = new Date().getTime();
 							}
 							artyom.obey();
@@ -412,6 +442,9 @@
 				smart: true,
 				indexes: ["time *"],
 				action: function(i, wildcard){
+
+					ReactDOM.render(<h1></h1>,document.getElementById("root"));
+
 						ReactDOM.render(
 								<video loop id="myVideo2" width="1500px" height="100%">
 									<source src="video/Introduction.mp4" type="video/mp4" />
@@ -422,7 +455,7 @@
 						let vid2 = document.getElementById("myVideo2");
 						vid2.play();
 
-					artyom.say("That was great ! Let me dig into my history and find out how it compares with other timings.",{
+					artyom.say("That was great! Let me dig into my history and find out how it compares with other timings.",{
 						onStart:function(){
 							artyom.dontObey();
 						}
@@ -433,13 +466,13 @@
 							onStart:function(){
 								ReactDOM.render(
 									<div className="row">
-										<div className="col s6 offset-s3">
-											<h4>Your Score: {time} Minutes</h4>
-											<h5>Previous Best Scores:</h5>
-											<ul className="collection">
-												<li style={{fontSize: '20px'}} className="collection-item"><i className="material-icons">grade</i> 2.6 Minutes</li>
-												<li style={{fontSize: '20px'}} className="collection-item"><i className="material-icons">grade</i> 3.4 Minutes</li>
-												<li style={{fontSize: '20px'}} className="collection-item"><i className="material-icons">grade</i> 4.8 Minutes</li>
+										<div className="col align-self-center">
+											<h1 className="display-4">Your Score: {time} Minutes</h1>
+											<h2>Previous Best Scores:</h2>
+											<ul className="list-group">
+												<li style={{fontSize: '30px'}} className="list-group-item"><i className="material-icons">grade</i> 2.6 Minutes</li>
+												<li style={{fontSize: '30px'}} className="list-group-item"><i className="material-icons">grade</i> 3.4 Minutes</li>
+												<li style={{fontSize: '30px'}} className="list-group-item"><i className="material-icons">grade</i> 4.8 Minutes</li>
 											</ul>
 										</div>
 									</div>,
@@ -449,16 +482,60 @@
 						});
 					}
 					else{
-						artyom.say("My data analysis states that your time was excellent. Great job.");
+						artyom.say("My data analysis states that your time was excellent. Great job. Here are some of the previous scores.",{
+							onStart:function(){
+								ReactDOM.render(
+									<div className="row">
+										<div className="col align-self-center">
+											<h1 className="display-4">Your Score: {time} Minutes</h1>
+											<h2>Previous Best Scores:</h2>
+											<ul className="list-group">
+												<li style={{fontSize: '30px'}} className="list-group-item"><i className="material-icons">grade</i> 2.6 Minutes</li>
+												<li style={{fontSize: '30px'}} className="list-group-item"><i className="material-icons">grade</i> 3.4 Minutes</li>
+												<li style={{fontSize: '30px'}} className="list-group-item"><i className="material-icons">grade</i> 4.8 Minutes</li>
+											</ul>
+										</div>
+									</div>,
+									document.getElementById("root")
+								);
+							}
+						});
 					}
 
-					artyom.say("I just wanted you to think about identifying the wastes in your process.");
+					artyom.say("I just wanted you to think about identifying the wastes in your process.",{
+						onStart:function(){
+							ReactDOM.render(
+								<div className="row" style={{marginTop: '10%', marginLeft: '10%'}}>
+									<div className="col align-self-center">
+										<blockquote className="blockquote">
+											<p className="mb-4">1. Identify the wastes in your process.</p>
+											<p className="mb-4">2. In this game, the longer the ball stays in air or the further it travels are wastes in the system.</p>
+											<p className="mb-4">3. The mantra is 'Increase the speed, reduce the distance'.</p>
+											<p className="mb-4">4. Look at your processes, think creatively and improve continuously.</p>
+										</blockquote>
+									</div>
+								</div>,
+								document.getElementById("root")
+							);
+						}
+					});
 					artyom.say("For example in our game, the longer the ball stays in air or the further it travels are wastes in the system.");
 					artyom.say("The mantra is 'Increase the speed, reduce the distance'. That will bring down the cycle time.");
 					artyom.say("I will leave you with a thought. Look at your processes, think creatively and improve continuously.");
 					artyom.say("Its amazing what you can achieve when you put your creative mind to it.");
 
-					artyom.say("Thank you and have a great day ahead.");
+					artyom.say("Thank you and have a great day ahead.",{
+						onStart:function(){
+							ReactDOM.render(
+								<div className="row"  id="thanks">
+									<div className="col align-self-center">
+										<h1 className="display-4">Thank You!</h1>
+									</div>
+								</div>,
+								document.getElementById("root")
+							);
+						}
+					});
 
 				}
 			},
