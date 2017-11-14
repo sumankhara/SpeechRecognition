@@ -126,7 +126,7 @@
 
 			const rules = function(i, command){
 
-					artyom.say("Each team has to create a process for giving and receiving the ball.",{
+					artyom.say("The team has to create a process for giving and receiving the ball.",{
 						lang:"en-GB",
 						onEnd:function(){
 								// artyom.shutUp();
@@ -143,62 +143,74 @@
 					lang:"en-US",
 					onStart:function(){
 						ReactDOM.render(
-									<video id="myVideo" width="1400px" height="100%">
+							<div>
+								<div className="embed-responsive embed-responsive-21by9">
+									<video className="embed-responsive-item" id="myVideo">
 										<source src="video/Rule1.mp4" type="video/mp4" />
-									</video>,
-									document.getElementById("root")
-							);
+									</video>
+								</div>
+							</div>,
+							document.getElementById("root")
+					);
 
-							let vid = document.getElementById("myVideo");
-							vid.play();
+					let vid = document.getElementById("myVideo");
+					vid.play();
 
-					},
-					onEnd:function(){
-						var start = new Date().getTime();
-						var end = start;
-						while(end < start + 3000) {
-							end = new Date().getTime();
-						}
-						ReactDOM.render(<h1></h1>, document.getElementById("root"));
+				},
+				onEnd:function(){
+					var start = new Date().getTime();
+					var end = start;
+					while(end < start + 3000) {
+						end = new Date().getTime();
 					}
-				});
+					ReactDOM.render(<h1></h1>, document.getElementById("root"));
+				}
+			});
 
-				artyom.say("You cannot pass the ball to the person adjacent to you.",{
-					lang:"en-GB",
-					onStart:function(){
-						ReactDOM.render(
-									<video id="myVideo2" width="1300px" height="100%">
-										<source src="video/Rule2.mp4" type="video/mp4" />
-									</video>,
-									document.getElementById("root")
-							);
+			artyom.say("You cannot pass the ball to the person adjacent to you.",{
+				lang:"en-GB",
+				onStart:function(){
+					ReactDOM.render(
+						<div>
+							<div className="embed-responsive embed-responsive-21by9">
+								<video className="embed-responsive-item" id="myVideo">
+									<source src="video/Rule2.mp4" type="video/mp4" />
+								</video>
+							</div>
+						</div>,
+						document.getElementById("root")
+					);
 
-							let vid2 = document.getElementById("myVideo2");
-							vid2.play();
+					let vid = document.getElementById("myVideo");
+					vid.play();
 
-					},
-					onEnd:function(){
-						var start = new Date().getTime();
-						var end = start;
-						while(end < start + 4000) {
-							end = new Date().getTime();
-						}
-						ReactDOM.render(<h1></h1>, document.getElementById("root"));
+				},
+				onEnd:function(){
+					var start = new Date().getTime();
+					var end = start;
+					while(end < start + 4000) {
+						end = new Date().getTime();
 					}
-				});
+					ReactDOM.render(<h1></h1>, document.getElementById("root"));
+				}
+			});
 
 				artyom.say("If you drop the ball, you must start the round again.",{
 					lang:"en-US",
 					onStart:function(){
 						ReactDOM.render(
-									<video id="myVideo2" width="1300px" height="100%">
+							<div>
+								<div className="embed-responsive embed-responsive-21by9">
+									<video className="embed-responsive-item" id="myVideo">
 										<source src="video/Rule3.mp4" type="video/mp4" />
-									</video>,
-									document.getElementById("root")
-							);
+									</video>
+								</div>
+							</div>,
+							document.getElementById("root")
+						);
 
-							let vid2 = document.getElementById("myVideo2");
-							vid2.play();
+							let vid = document.getElementById("myVideo");
+							vid.play();
 
 					},
 					onEnd:function(){
@@ -215,44 +227,52 @@
 					lang:"en-GB",
 					onStart:function(){
 						ReactDOM.render(
-									<video id="myVideo2" width="1350px" height="100%">
+							<div>
+								<div className="embed-responsive embed-responsive-21by9">
+									<video className="embed-responsive-item" id="myVideo">
 										<source src="video/Rule4_new.mp4" type="video/mp4" />
-									</video>,
-									document.getElementById("root")
-							);
+									</video>
+								</div>
+							</div>,
+							document.getElementById("root")
+						);
 
-							let vid2 = document.getElementById("myVideo2");
-							vid2.play();
+						let vid = document.getElementById("myVideo");
+						vid.play();
 
 					},
 					onEnd:function(){
 						var start = new Date().getTime();
 						var end = start;
-						while(end < start + 5000) {
+						while(end < start + 4000) {
 							end = new Date().getTime();
 						}
 						ReactDOM.render(<h1></h1>, document.getElementById("root"));
 					}
 				});
 
-				artyom.say("Two consecutive cycle in quick succession is equal to one product. You can change the sequence between cycles.",{
+				artyom.say("Two consecutive cycle in quick succession is equal to one product. You can however change the sequence between cycles.",{
 					lang:"en-GB",
 					onStart:function(){
 						ReactDOM.render(
-									<video id="myVideo2" width="1500px" height="100%">
+							<div>
+								<div className="embed-responsive embed-responsive-21by9">
+									<video className="embed-responsive-item" id="myVideo">
 										<source src="video/Rule6.mp4" type="video/mp4" />
-									</video>,
-									document.getElementById("root")
-							);
+									</video>
+								</div>
+							</div>,
+							document.getElementById("root")
+						);
 
-							let vid2 = document.getElementById("myVideo2");
-							vid2.play();
+						let vid = document.getElementById("myVideo");
+						vid.play();
 
 					},
 					onEnd:function(){
 						var start = new Date().getTime();
 						var end = start;
-						while(end < start + 8000) {
+						while(end < start + 6000) {
 							end = new Date().getTime();
 						}
 						ReactDOM.render(<h1></h1>, document.getElementById("root"));
@@ -263,14 +283,18 @@
 					lang:"en-US",
 					onStart:function(){
 						ReactDOM.render(
-									<video id="myVideo2" width="1500px" height="100%">
+							<div>
+								<div className="embed-responsive embed-responsive-21by9">
+									<video className="embed-responsive-item" id="myVideo">
 										<source src="video/Rule7.mp4" type="video/mp4" />
-									</video>,
-									document.getElementById("root")
-							);
+									</video>
+								</div>
+							</div>,
+							document.getElementById("root")
+						);
 
-							let vid2 = document.getElementById("myVideo2");
-							vid2.play();
+						let vid = document.getElementById("myVideo");
+						vid.play();
 
 					},
 					onEnd:function(){
@@ -303,17 +327,21 @@
 							// );
 
 							ReactDOM.render(
-								<video loop id="myVideo2" width="1500px" height="100%">
-									<source src="video/filler.mp4" type="video/mp4" />
-								</video>,
+								<div>
+									<div className="embed-responsive embed-responsive-21by9">
+										<video className="embed-responsive-item" loop id="myVideo">
+											<source src="video/filler.mp4" type="video/mp4" />
+										</video>
+									</div>
+								</div>,
 								document.getElementById("root")
 							);
 
-							let vid2 = document.getElementById("myVideo2");
-							vid2.play();
+							let vid = document.getElementById("myVideo");
+							vid.play();
 						}
 					});
-					artyom.say("Otherwise respond by saying Begin Game or Start Game.",{
+					artyom.say("Otherwise respond by saying Play Game or Start Game.",{
 						onEnd:function(){
 							var start = new Date().getTime();
 							var end = start;
@@ -337,14 +365,18 @@
 							// ReactDOM.render(<img src="images/filler.gif" style={{ height: '685px', width: '100%' }}/>,
 							// 	document.getElementById("root"));
 							ReactDOM.render(
-								<video loop id="myVideo2" width="1500px" height="100%">
-									<source src="video/filler.mp4" type="video/mp4" />
-								</video>,
+								<div>
+									<div className="embed-responsive embed-responsive-21by9">
+										<video className="embed-responsive-item" loop id="myVideo">
+											<source src="video/filler.mp4" type="video/mp4" />
+										</video>
+									</div>
+								</div>,
 								document.getElementById("root")
 							);
 
-							let vid2 = document.getElementById("myVideo2");
-							vid2.play();
+							let vid = document.getElementById("myVideo");
+							vid.play();
 
 //							artyom.dontObey();
 						}
@@ -384,14 +416,18 @@
 							// 	document.getElementById("root"));
 
 							ReactDOM.render(
-								<video loop id="myVideo2" width="1500px" height="100%">
-									<source src="video/filler.mp4" type="video/mp4" />
-								</video>,
+								<div>
+									<div className="embed-responsive embed-responsive-21by9">
+										<video className="embed-responsive-item" loop id="myVideo">
+											<source src="video/filler.mp4" type="video/mp4" />
+										</video>
+									</div>
+								</div>,
 								document.getElementById("root")
 							);
 
-							let vid2 = document.getElementById("myVideo2");
-							vid2.play();
+							let vid = document.getElementById("myVideo");
+							vid.play();
 
 							artyom.dontObey();
 						}
@@ -414,15 +450,19 @@
 
 							ReactDOM.render(<h1></h1>,document.getElementById("root"));
 
-							ReactDOM.render(
-								<video loop id="myVideo2" width="1300px" height="100%">
-									<source src="video/GameOn.mp4" type="video/mp4" />
-								</video>,
+							ReactDOM.render(<img src="images/GameOn.jpg" style={{ height: '685px', width: '100%' }}/>,
 								document.getElementById("root")
 							);
 
-							let vid2 = document.getElementById("myVideo2");
-							vid2.play();
+							// ReactDOM.render(
+							// 	<video loop id="myVideo2" width="1300px" height="100%">
+							// 		<source src="video/GameOn.mp4" type="video/mp4" />
+							// 	</video>,
+							// 	document.getElementById("root")
+							// );
+              //
+							// let vid2 = document.getElementById("myVideo2");
+							// vid2.play();
 
 //							artyom.dontObey();
 						},
@@ -446,14 +486,18 @@
 					ReactDOM.render(<h1></h1>,document.getElementById("root"));
 
 						ReactDOM.render(
-								<video loop id="myVideo2" width="1500px" height="100%">
-									<source src="video/Introduction.mp4" type="video/mp4" />
-								</video>,
+							<div>
+								<div className="embed-responsive embed-responsive-21by9">
+									<video className="embed-responsive-item" id="myVideo">
+										<source src="video/Introduction.mp4" type="video/mp4" />
+									</video>
+								</div>
+							</div>,
 								document.getElementById("root")
 						);
 
-						let vid2 = document.getElementById("myVideo2");
-						vid2.play();
+						let vid = document.getElementById("myVideo");
+						vid.play();
 
 					artyom.say("That was great! Let me dig into my history and find out how it compares with other timings.",{
 						onStart:function(){
