@@ -38,6 +38,7 @@
 					music.pause();
 
 					artyom.initialize({
+						executionKeyword:"now",
 				    lang:"en-GB",
 						continuous: true,
 				    debug:true, // Show what recognizes in the Console
@@ -160,7 +161,7 @@
 				onEnd:function(){
 					var start = new Date().getTime();
 					var end = start;
-					while(end < start + 3000) {
+					while(end < start + 2000) {
 						end = new Date().getTime();
 					}
 					ReactDOM.render(<h1></h1>, document.getElementById("root"));
@@ -188,7 +189,7 @@
 				onEnd:function(){
 					var start = new Date().getTime();
 					var end = start;
-					while(end < start + 4000) {
+					while(end < start + 2000) {
 						end = new Date().getTime();
 					}
 					ReactDOM.render(<h1></h1>, document.getElementById("root"));
@@ -216,7 +217,7 @@
 					onEnd:function(){
 						var start = new Date().getTime();
 						var end = start;
-						while(end < start + 4000) {
+						while(end < start + 2000) {
 							end = new Date().getTime();
 						}
 						ReactDOM.render(<h1></h1>, document.getElementById("root"));
@@ -244,7 +245,7 @@
 					onEnd:function(){
 						var start = new Date().getTime();
 						var end = start;
-						while(end < start + 4000) {
+						while(end < start + 3000) {
 							end = new Date().getTime();
 						}
 						ReactDOM.render(<h1></h1>, document.getElementById("root"));
@@ -272,7 +273,7 @@
 					onEnd:function(){
 						var start = new Date().getTime();
 						var end = start;
-						while(end < start + 6000) {
+						while(end < start + 3000) {
 							end = new Date().getTime();
 						}
 						ReactDOM.render(<h1></h1>, document.getElementById("root"));
@@ -549,24 +550,33 @@
 					artyom.say("I just wanted you to think about identifying the wastes in your process.",{
 						onStart:function(){
 							ReactDOM.render(
-								<div className="row" style={{marginTop: '10%', marginLeft: '10%'}}>
-									<div className="col align-self-center">
-										<blockquote className="blockquote">
-											<p className="mb-4">1. Identify the wastes in your process.</p>
-											<p className="mb-4">2. In this game, the longer the ball stays in air or the further it travels are wastes in the system.</p>
-											<p className="mb-4">3. The mantra is 'Increase the speed, reduce the distance'.</p>
-											<p className="mb-4">4. Look at your processes, think creatively and improve continuously.</p>
-										</blockquote>
+								<div>
+									<div className="embed-responsive embed-responsive-21by9">
+										<video className="embed-responsive-item" id="myVideo">
+											<source src="video/game.mp4" type="video/mp4" />
+										</video>
 									</div>
 								</div>,
 								document.getElementById("root")
 							);
+
+							let vid = document.getElementById("myVideo");
+							vid.play();
 						}
 					});
 					artyom.say("For example in our game, the longer the ball stays in air or the further it travels are wastes in the system.");
 					artyom.say("The mantra is 'Increase the speed, reduce the distance'. That will bring down the cycle time.");
 					artyom.say("I will leave you with a thought. Look at your processes, think creatively and improve continuously.");
-					artyom.say("Its amazing what you can achieve when you put your creative mind to it.");
+					artyom.say("Its amazing what you can achieve when you put your creative mind to it.",{
+						onEnd:function(){
+							var start = new Date().getTime();
+							var end = start;
+							while(end < start + 2000) {
+								end = new Date().getTime();
+							}
+							artyom.obey();
+						}
+					});
 
 					artyom.say("Thank you and have a great day ahead.",{
 						onStart:function(){
